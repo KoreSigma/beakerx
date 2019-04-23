@@ -16,6 +16,7 @@
 package com.twosigma.beakerx;
 
 import com.twosigma.beakerx.fileloader.CSV;
+import com.twosigma.beakerx.jvm.object.PlasmaObject;
 
 import java.util.List;
 import java.util.concurrent.SynchronousQueue;
@@ -29,59 +30,18 @@ public class NamespaceClientPlasma implements BeakerXClient {
 
     @Override
     public String update(String name, Object value) {
-        PlasmaData mapped = toPlasma(value);
-
-        if (mapped == null) {
-            return delegate.update(name, value);
-        } else {
-            return delegate.update(name, mapped);
-        }
+        return delegate.update(name, toPlasma(value));
     }
 
     @Override
     public Object set(String name, Object value) {
-        PlasmaData mapped = toPlasma(value);
-
-        if (mapped == null) {
-            return delegate.set(name, value);
-        } else {
-            return delegate.set(name, mapped);
-        }
+        return delegate.update(name, toPlasma(value));
     }
 
     @Override
     public Object get(String name) {
-        Object value = delegate.get(name);
-
-        if (value instanceof PlasmaData) {
-            return ((PlasmaData) value).readValue();
-        } else {
-            return value;
-        }
+        return fromPlasma(delegate.get(name));
     }
-
-    private interface PlasmaData<T> {
-        T readValue();
-    }
-
-
-    // ============================== Mappers ============================== //
-
-    private static PlasmaData<Object> toPlasma(Object value) {
-        return null;
-    }
-
-    // For testing purposes
-    private static PlasmaData<String> toPlasma(String string) {
-        return () -> string;
-    }
-
-    private static PlasmaData<CSV> toPlasma(CSV csv) {
-        return null;
-    }
-
-
-    // ============================== Delegation ============================== //
 
     @Override
     public void delBeaker() {
@@ -116,5 +76,22 @@ public class NamespaceClientPlasma implements BeakerXClient {
     @Override
     public String urlArg(String argName) {
         return delegate.urlArg(argName);
+    }
+
+
+    private static Object toPlasma(Object value) {
+        return value;
+    }
+
+    private static Object toPlasma(CSV csv) {
+        return null;
+    }
+
+    private static Object fromPlasma(Object object) {
+        return object;
+    }
+
+    private static Object fromPlasma(PlasmaObject plasmaObject) {
+        return null;
     }
 }
