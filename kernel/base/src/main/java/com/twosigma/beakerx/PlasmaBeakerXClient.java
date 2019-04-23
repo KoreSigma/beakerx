@@ -15,6 +15,8 @@
  */
 package com.twosigma.beakerx;
 
+import org.apache.arrow.plasma.PlasmaClient;
+
 import java.util.List;
 import java.util.concurrent.SynchronousQueue;
 
@@ -23,11 +25,12 @@ public class PlasmaBeakerXClient implements BeakerXClient {
 
     private final PlasmaObjectConverter[] plasmaObjectConverters;
 
-    public PlasmaBeakerXClient(BeakerXClient delegate) {
+    public PlasmaBeakerXClient(BeakerXClient delegate, PlasmaClient plasmaClient) {
         this.delegate = delegate;
 
         plasmaObjectConverters = new PlasmaObjectConverter[]{
-                new PlasmaObjectCsvConverter()
+                new PlasmaObjectCsvConverter(),
+                new PlasmaObjectStringConverter(plasmaClient)
         };
     }
 
