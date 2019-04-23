@@ -29,8 +29,8 @@ public class PlasmaBeakerXClient implements BeakerXClient {
         this.delegate = delegate;
 
         plasmaObjectConverters = new PlasmaObjectConverter[]{
-                new PlasmaObjectCsvConverter(plasmaClient),
-                new PlasmaObjectStringConverter(plasmaClient)
+                new PlasmaObjectConverterCsv(plasmaClient),
+                new PlasmaObjectConverterString(plasmaClient)
         };
     }
 

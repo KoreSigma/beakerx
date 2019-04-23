@@ -3,12 +3,12 @@ package com.twosigma.beakerx;
 import com.twosigma.beakerx.fileloader.CSV;
 import org.apache.arrow.plasma.PlasmaClient;
 
-public class PlasmaObjectCsvConverter implements PlasmaObjectConverter {
+public class PlasmaObjectConverterCsv implements PlasmaObjectConverter {
     private static final String PLASMA_INFO_TYPE = "csv";
 
     private final PlasmaClient plasmaClient;
 
-    public PlasmaObjectCsvConverter(PlasmaClient plasmaClient) {
+    public PlasmaObjectConverterCsv(PlasmaClient plasmaClient) {
         this.plasmaClient = plasmaClient;
     }
 

@@ -5,13 +5,13 @@ import org.apache.arrow.plasma.PlasmaClient;
 import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
-public class PlasmaObjectStringConverter implements PlasmaObjectConverter {
+public class PlasmaObjectConverterString implements PlasmaObjectConverter {
     private static final String PLASMA_INFO_TYPE = "string";
     private static final Random random = new Random();
 
     private final PlasmaClient plasmaClient;
 
-    public PlasmaObjectStringConverter(PlasmaClient plasmaClient) {
+    public PlasmaObjectConverterString(PlasmaClient plasmaClient) {
         this.plasmaClient = plasmaClient;
     }
 
