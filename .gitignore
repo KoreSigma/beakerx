@@ -72,7 +72,7 @@ cscope.po.out
 
 # IntelliJ
 .idea/
-.iml
+*.iml
 
 # Eclipse
 .metadata/
