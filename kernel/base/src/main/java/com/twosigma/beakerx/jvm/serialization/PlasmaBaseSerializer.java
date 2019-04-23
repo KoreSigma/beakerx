@@ -6,7 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.IOException;
 import java.util.Base64;
 
-public abstract class PlasmaSerializer implements ObjectSerializer {
+public abstract class PlasmaBaseSerializer implements ObjectSerializer {
 
     public static final String FIELD_OBJECT_ID = "$plasma_object_id";
     public static final String FIELD_OBJECT_TYPE = "$plasma_object_type";
