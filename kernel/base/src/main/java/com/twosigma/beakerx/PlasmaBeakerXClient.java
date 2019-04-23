@@ -16,15 +16,14 @@
 package com.twosigma.beakerx;
 
 import com.twosigma.beakerx.fileloader.CSV;
-import com.twosigma.beakerx.jvm.object.PlasmaObject;
 
 import java.util.List;
 import java.util.concurrent.SynchronousQueue;
 
-public class NamespaceClientPlasma implements BeakerXClient {
+public class PlasmaBeakerXClient implements BeakerXClient {
     private final BeakerXClient delegate;
 
-    public NamespaceClientPlasma(BeakerXClient delegate) {
+    public PlasmaBeakerXClient(BeakerXClient delegate) {
         this.delegate = delegate;
     }
 
@@ -91,7 +90,7 @@ public class NamespaceClientPlasma implements BeakerXClient {
         return object;
     }
 
-    private static Object fromPlasma(PlasmaObject plasmaObject) {
+    private static Object fromPlasma(PlasmaObjectInfo plasmaObjectInfo) {
         return null;
     }
 }

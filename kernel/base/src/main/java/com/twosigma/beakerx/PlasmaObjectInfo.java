@@ -1,10 +1,10 @@
-package com.twosigma.beakerx.jvm.object;
+package com.twosigma.beakerx;
 
-public class PlasmaObject {
+public class PlasmaObjectInfo {
     private final byte[] id;
     private final String type;
 
-    public PlasmaObject(byte[] id, String type) {
+    public PlasmaObjectInfo(byte[] id, String type) {
         assert id != null;
         assert type != null;
 

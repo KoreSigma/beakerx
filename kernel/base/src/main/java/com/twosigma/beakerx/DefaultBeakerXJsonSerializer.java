@@ -17,8 +17,8 @@ package com.twosigma.beakerx;
 
 import com.twosigma.beakerx.jvm.serialization.BasicObjectSerializer;
 import com.twosigma.beakerx.jvm.serialization.BeakerObjectConverter;
-import com.twosigma.beakerx.jvm.serialization.PlasmaObjectDeserializer;
-import com.twosigma.beakerx.jvm.serialization.PlasmaObjectSerializer;
+import com.twosigma.beakerx.jvm.serialization.PlasmaObjectInfoDeserializer;
+import com.twosigma.beakerx.jvm.serialization.PlasmaObjectInfoSerializer;
 import com.twosigma.beakerx.table.serializer.AutotranslationDefaultDeserializer;
 import com.twosigma.beakerx.table.serializer.TableDisplayDeSerializer;
 
@@ -30,8 +30,8 @@ public class DefaultBeakerXJsonSerializer extends BaseBeakerXJsonSerializer {
     serializer.addTypeDeserializer(new TableDisplayDeSerializer(serializer));
     serializer.addTypeDeserializer(new AutotranslationDefaultDeserializer());
 
-    serializer.addTypeSerializer(new PlasmaObjectSerializer());
-    serializer.addTypeDeserializer(new PlasmaObjectDeserializer());
+    serializer.addTypeSerializer(new PlasmaObjectInfoSerializer());
+    serializer.addTypeDeserializer(new PlasmaObjectInfoDeserializer());
 
     return serializer;
   }
