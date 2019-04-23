@@ -29,7 +29,7 @@ public class PlasmaBeakerXClient implements BeakerXClient {
         this.delegate = delegate;
 
         plasmaObjectConverters = new PlasmaObjectConverter[]{
-                new PlasmaObjectCsvConverter(),
+                new PlasmaObjectCsvConverter(plasmaClient),
                 new PlasmaObjectStringConverter(plasmaClient)
         };
     }
